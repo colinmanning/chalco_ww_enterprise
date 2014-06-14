@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<woodwingdisconfig>
+	<baseurl>http://172.30.16.153:8084/disweb</baseurl>
+	<thumbnail name="normal" size="100" />
+	<preview name="big" size="600" />
+	<databaseLabel>Database</databaseLabel>
+	<viewLabel>View</viewLabel>
+	<disableViewList>true</disableViewList>
+	<defaultBrand>TestCopia3</defaultBrand>
+	<defaultCategory>News</defaultCategory>
+	<defaultStatus>Images</defaultStatus>
+	<outputDirectory>/dis/</outputDirectory>
+	<showViews>false</showViews>
+	<defaultView>woodwing-overview</defaultView>
+    <dateFieldFormat>Y-m-d\TH:i:s</dateFieldFormat>
+	<connections>
+		<connection name="sample-1" displayName="Chalco DB">
+			<view displayName="Overview" name="woodwing-overview">
+				<mandatoryFields>
+					<mandatoryField assetName="FILENAME" />
+					<mandatoryField assetFormat="File Type" />
+					<mandatoryField assetSlugline="Media.Description" />
+				</mandatoryFields>
+				<field assetSlugline="Media.Description" />
+  			</view>
+			<propertiesview name="woodwing-properties">
+				<field BasicMetaData-DocumentID="ID" />
+				<field BasicMetaData-Name="FILENAME" />
+				<field ContentMetaData-Format="File Type" />
+				<field ContentMetaData-Width="" />
+				<field ContentMetaData-Height="" />
+				<field ContentMetaData-FileSize="" />
+				<field ContentMetaData-Dpi="" />
+				<field ContentMetaData-ColorSpace="" />
+				<field ContentMetaData-Description="" />
+				<field ContentMetaData-DescriptionAuthor="" />
+				<field ContentMetaData-Keywords="" />
+				<field ContentMetaData-Slugline="Media.Description" />
+				<field RightsMetaData-Copyright="" />
+				<field RightsMetaData-CopyrightMarked="" />
+				<field RightsMetaData-CopyrightURL="" />
+				<field SourceMetaData-Credit="" />
+				<field SourceMetaData-Source="" />
+				<field SourceMetaData-Author="" />
+				<field WorkflowMetaData-Rating="" />
+				<field WorkflowMetaData-Urgency="" />
+				<field WorkflowMetaData-Modified="" />
+				<field WorkflowMetaData-Created="" />
+			</propertiesview>
+		</connection>
+	</connections>
+	<queries>
+		<query displayname="Text Search" name="textsearch">
+			<param displayname="Text" name="text" type="string" />
+			<connection>Chalco DB</connection>
+		</query>
+	</queries>
+</woodwingdisconfig>

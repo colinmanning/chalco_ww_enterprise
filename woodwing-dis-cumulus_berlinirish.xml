@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<woodwingdisconfig>
+	<baseurl>http://172.30.16.153:8084/disweb</baseurl>
+	<thumbnail name="woodwingThumb" size="100" />
+	<preview name="woodwingPreview" size="600" />
+	<databaseLabel>Database</databaseLabel>
+	<viewLabel>View</viewLabel>
+	<disableViewList>true</disableViewList>
+	<defaultBrand>WW News</defaultBrand>
+	<defaultCategory>News</defaultCategory>
+	<defaultStatus>Images</defaultStatus>
+	<outputDirectory>/dis/</outputDirectory>
+	<showViews>true</showViews>
+	<defaultView>woodwing-details</defaultView>
+        <dateFieldFormat>Y-m-d\TH:i:s</dateFieldFormat>
+	<connections>
+		<connection name="sample-2" displayName="Image Base">
+			<view displayName="Overview" name="woodwing-overview">
+				<mandatoryFields>
+					<mandatoryField assetName="Record Name" />
+					<mandatoryField assetFormat="File Format" />
+					<mandatoryField assetSlugline="Slugline" />
+				</mandatoryFields>
+				<field assetSlugline="Caption" />
+				<field assetSlugline="Rating" />
+  			</view>
+			<view displayName="Details" name="woodwing-details">
+				<mandatoryFields>
+					<mandatoryField assetName="Record Name" />
+					<mandatoryField assetFormat="File Format" />
+					<mandatoryField assetSlugline="Slugline" />
+					<mandatoryField assetSlugline="Byline" />
+				</mandatoryFields>
+				<field name="Horizontal Pixels" simpleName="HorizontalPixels" />
+				<field name="Vertical Pixels" simpleName="VerticalPixels" />
+				<field name="Caption" />
+				<field name="Byline" />
+				<field name="Urgency" />
+				<field name="Rating" />
+				<field name="File Data Size" simpleName="VerticalPixels" />
+				<field name="Asset Creation Date" simpleName="AssetCreationDate" />
+			</view>
+			<propertiesview name="woodwing-properties">
+				<field BasicMetaData-DocumentID="ID" />
+				<field BasicMetaData-Name="Record Name" />
+				<field ContentMetaData-Format="File Format" />
+				<field ContentMetaData-Width="Horizontal Pixels" />
+				<field ContentMetaData-Height="Vertical Pixels" />
+				<field ContentMetaData-FileSize="" />
+				<field ContentMetaData-Dpi="Horizontal Resolution" />
+				<field ContentMetaData-ColorSpace="Color Space" />
+				<field ContentMetaData-Description="Caption" />
+				<field ContentMetaData-DescriptionAuthor="Caption Writer" />
+				<field ContentMetaData-Keywords="Keywords" />
+				<field ContentMetaData-Slugline="Slugline" />
+				<field RightsMetaData-Copyright="Copyright Notice" />
+				<field RightsMetaData-CopyrightMarked="Copyright Applied" />
+				<field RightsMetaData-CopyrightURL="" />
+				<field SourceMetaData-Credit="" />
+				<field SourceMetaData-Source="" />
+				<field SourceMetaData-Author="Author" />
+				<field WorkflowMetaData-Rating="Rating" />
+				<field WorkflowMetaData-Urgency="Urgency" />
+				<field WorkflowMetaData-Modified="Asset Modification Date" />
+				<field WorkflowMetaData-Created="Asset Creation Date" />
+			</propertiesview>
+		</connection>
+	</connections>
+	<queries>
+		<query displayname="DIS Text Search" name="textsearch">
+			<param displayname="Text" name="text" type="string" />
+			<connection>Image Base</connection>
+		</query>
+		<query displayname="DIS Range Search" name="id-range">
+			<param displayname="From" name="id_from" type="int" min="500" max="600" />
+			<param displayname="To" name="id_to" type="int" min="510" max="800" />
+			<connection>Image Base</connection>
+		</query>
+		<query displayname="DIS Modified Since" name="asset-modified-since">
+			<param displayname="Since" name="since" type="date" format="m-d-Y" />
+			<connection>Image Base</connection>
+		</query>
+		<query displayname="DIS Keywords" name="keyword-search">
+			<param displayname="Keyword" name="keyword" type="list"
+				listDataType="string">
+				<item value="Bathroom" displayName="Bathroom" />
+				<item value="Bedroom" displayName="Bedroom" />
+				<item value="Hall" displayName="Hall" />
+				<item value="Kitchen" displayName="Kitchen" />
+				<item value="Livingroom" displayName="Livingroom" />
+			</param>
+			<connection>Image Base</connection>
+		</query>
+		<query displayname="DIS Public Search" name="public-search">
+			<param displayname="Public" name="is_public" type="boolean" />
+			<connection>Production</connection>
+		</query>
+	</queries>
+</woodwingdisconfig>
